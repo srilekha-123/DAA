@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+void merge(int nums1[],int nums2[],int n1,int n2,int c[]){
+    int i=0,j=0,k=0;
+    while(i<n1 && j<n2){
+        if(nums1[i]<nums2[j]){
+            c[k++]=nums1[i++];
+        }else{
+            c[k++]=nums2[j++];
+        }
+    }
+    while(i<n1){
+        c[k++]=nums1[i++];
+    }
+    while(j<n2){
+        c[k++]=nums2[j++];
+    }
+    k=0;
+    for(k=0;k<n1+n2;k++){
+        printf("%d ",c[k]);
+    }
+}
+void main(){
+    int n1,n2,i,j,c[20],k;
+    printf("enter n1:");
+    scanf("%d",&n1);
+    int a[n1];
+    for(i=0;i<n1;i++){
+        scanf("%d",&a[i]);
+    }
+    printf("enter n2:");
+    scanf("%d",&n2);
+    int b[n2];
+    for(j=0;j<n2;j++){
+        scanf("%d",&b[j]);
+    }
+    merge(a,b,n1,n2,c);
+
+}
